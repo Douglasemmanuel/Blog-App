@@ -58,16 +58,17 @@ class ApiService {
   }
 
 
-  Future<List<Post>> fetchSinglePosts(int postId) async {
-    final response = await http.get(Uri.parse('$baseUrl/posts?postId=$postId'));
-    if (response.statusCode == 200) {
-      print('Raw response body: ${response.body}'); 
-      List data = json.decode(response.body);
-    return data.map((json) => Post.fromJson(json)).toList();
-    } else {
-      throw Exception('Failed to load posts');
-    }
+  Future<Post> fetchSinglePosts(int postId) async {
+  print('Fetching Post with ID: $postId');
+  final response = await http.get(Uri.parse('$baseUrl/posts/$postId'));
+
+  if (response.statusCode == 200) {
+    return Post.fromJson(json.decode(response.body));
+  } else {
+    throw Exception('Failed to load post');
   }
+}
+
 
 
   Future<List<Comment>> fetchComments(int postId) async {
@@ -81,7 +82,7 @@ class ApiService {
   }
  
   Future<User> fetchUser(int userId) async {
-    print('Fetching user with ID: $userId'); 
+    // print('Fetching user with ID: $userId'); 
     final response = await http.get(Uri.parse('$baseUrl/users/$userId'));
     if (response.statusCode == 200) {
       return User.fromJson(json.decode(response.body));

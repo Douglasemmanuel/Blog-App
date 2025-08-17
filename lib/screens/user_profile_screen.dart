@@ -201,9 +201,9 @@ class _EditFormSheetState extends State<EditFormSheet> {
 
   String title = '';
   String body = '';
-  string userId = '1';
+  String userId = '1';
  
-int postId = 2;
+  int postId = 2;
   @override
   Widget build(BuildContext context) {
     

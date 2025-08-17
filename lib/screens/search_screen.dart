@@ -18,7 +18,8 @@ class _SearchScreenState extends State<SearchScreen> {
   final ApiService _apiService = ApiService();
 
   String _searchQuery = "";
-  List<Post> _searchResults = [];
+  // List<Post> _searchResults = [];
+  Post? _searchResult;
   bool _isLoading = false;
   String? _errorMessage;
 
@@ -31,11 +32,7 @@ class _SearchScreenState extends State<SearchScreen> {
     super.dispose();
   }
 
-//   void _onSearchChanged(String query) {
-//     setState(() {
-//       _searchQuery = query;
-//     });
-//   }
+
 
   void _onSearchChanged(String query) {
     if (_debounce?.isActive ?? false) _debounce!.cancel();
@@ -44,7 +41,8 @@ class _SearchScreenState extends State<SearchScreen> {
       if (query.isEmpty) {
         setState(() {
           _searchQuery = "";
-          _searchResults = [];
+          _searchResult = null;
+          // _searchResults = [];
           _errorMessage = null;
         });
         return;
@@ -60,7 +58,8 @@ class _SearchScreenState extends State<SearchScreen> {
         final postId = int.tryParse(query);
         if (postId == null) {
           setState(() {
-            _searchResults = [];
+            // _searchResults = [];
+            _searchResult = null;
             _isLoading = false;
             _errorMessage = "Please enter a valid post ID (number)";
           });
@@ -69,7 +68,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
         final results = await _apiService.fetchSinglePosts(postId);
         setState(() {
-          _searchResults = results;
+          _searchResult = results;
           _isLoading = false;
         });
       } catch (e) {
@@ -81,7 +80,7 @@ class _SearchScreenState extends State<SearchScreen> {
     });
   }
 
-  @override
+ @override
 Widget build(BuildContext context) {
   return Scaffold(
     body: SafeArea(
@@ -94,61 +93,33 @@ Widget build(BuildContext context) {
               onChanged: _onSearchChanged,
             ),
             const SizedBox(height: 20),
-            // Placeholder for search results
-            // Expanded(
-            //   child: Center(
-            //     child: Text(
-            //       _searchQuery.isEmpty
-            //           ? "Start typing to search..."
-            //           : "Searching for: '$_searchQuery'",
-            //       style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-            //     ),
-            //   ),
-            // ),
             Expanded(
-  child: _isLoading
-      ? const Center(child: CircularProgressIndicator())
-      : _errorMessage != null
-          ? Center(child: Text(_errorMessage!))
-          : _searchResults.isEmpty
-              ? Center(
-                  child: Text(
-                    _searchQuery.isEmpty
-                        ? "Start typing post ID to search..."
-                        : "No results found for '$_searchQuery'",
-                    style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-                  ),
-                )
-              : ListView.builder(
-                  itemCount: _searchResults.length,
-                  itemBuilder: (context, index) {
-                    final post = _searchResults[index];
-                    return SearchResult(post: post);
-                    // return Card(
-                    //   margin: const EdgeInsets.symmetric(vertical: 8),
-                    //   child: Padding(
-                    //     padding: const EdgeInsets.all(16.0),
-                    //     child: Column(
-                    //       crossAxisAlignment: CrossAxisAlignment.start,
-                    //       children: [
-                    //         Text(
-                    //           post.title,
-                    //           style: const TextStyle(
-                    //             fontSize: 18,
-                    //             fontWeight: FontWeight.bold,
-                    //           ),
-                    //         ),
-                    //         const SizedBox(height: 8),
-                    //         Text(post.body),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // );
-                  },
-                ),
-),
-
-
+              child: _isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : _errorMessage != null
+                      ? Center(child: Text(_errorMessage!))
+                      : _searchResult == null
+                          ? Center(
+                              child: Text(
+                                _searchQuery.isEmpty
+                                    ? "Start typing post ID to search..."
+                                    : "No results found for '$_searchQuery'",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.grey[600],
+                                ),
+                              ),
+                            )
+                          : SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  // Text('Post ID: ${_searchResult!.id}'),
+                                  SearchResult(post: _searchResult!),
+                                ],
+                              ),
+                            ),
+            ),
           ],
         ),
       ),
@@ -156,5 +127,8 @@ Widget build(BuildContext context) {
   );
 }
 
+
 }
+
+
 

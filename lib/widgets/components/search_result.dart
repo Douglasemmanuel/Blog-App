@@ -34,7 +34,7 @@ class SearchResult extends ConsumerWidget {
                         : null,
                     child: (user.avatarUrl == null || user.avatarUrl!.isEmpty)
                         ? Text(
-                            user.name.substring(0, 1),
+                            user.name.substring(0, 2),
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.black54,

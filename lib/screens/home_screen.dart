@@ -102,25 +102,28 @@ if (isScrollingDown &&
   
   floatingActionButton: FloatingActionButton(
   onPressed: () {
-  showModalBottomSheet(
-    context: context,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-    ),
-    isScrollControlled: true, // lets sheet expand with keyboard
-    builder: (BuildContext context) {
-      return Padding(
+ showModalBottomSheet(
+  context: context,
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+  ),
+  isScrollControlled: true, // lets sheet expand with keyboard
+  builder: (BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.4,
+      child: Padding(
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
           left: 16,
           right: 16,
           top: 16,
         ),
-        child: CreatePostForm(),
+        child: CreatePostForm(), // Make sure this is a scrollable/form widget
+      ),
+    );
+  },
+);
 
-      );
-    },
-  );
 },
 
   backgroundColor: Colors.blue,
