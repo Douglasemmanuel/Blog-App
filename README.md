@@ -21,14 +21,14 @@ A **Flutter application** powered by the [JSONPlaceholder API](https://jsonplace
 
 | Search Post                                                     | View Post & Comments                                           | User Profile                                                   |
 | --------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| ![Search](https://via.placeholder.com/150x300?text=Search+Post) | ![Post](https://via.placeholder.com/150x300?text=Post+Details) | ![User](https://via.placeholder.com/150x300?text=User+Profile) |
+| <img src="assets/images/search.png" alt="search" width="200"/> | !<img src="assets/images/home.png" alt="home" width="200"/>  <img src="assets/images/comment.png" alt="comment" width="200"/>| ![User](https://via.placeholder.com/150x300?text=User+Profile) |
 
 ---
 
 ## 🎬 Video Walkthrough
 
 📺 **Watch Full Tutorial**
-[![Watch on YouTube](https://img.youtube.com/vi/Wsor0fci3Ss/0.jpg)](https://www.youtube.com/watch?v=Wsor0fci3Ss)
+[![Watch on GoggleDrive](https://img.youtube.com/vi/Wsor0fci3Ss/0.jpg)](https://www.youtube.com/watch?v=Wsor0fci3Ss)
 
 ---
 
@@ -165,7 +165,7 @@ For questions or improvements, open an issue or email:
 
 ---
 
-Let me know if you want this version exported as a `README.md` file, or if you’d like GitHub badge integration (e.g. Flutter version, license, YouTube link).
+Let me know if you want this version exported as a `README.md` file, or if you’d like GitHub badge integration (e.g. Flutter version, license, Goggle Drive link).
 
 
 <!-- COLOR
