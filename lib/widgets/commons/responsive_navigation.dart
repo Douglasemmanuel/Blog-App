@@ -6,6 +6,7 @@ import '../../utils/route_generator.dart';
 import '../../screens/home_screen.dart';
 import '../../screens/post_detail_screen.dart';
 import '../../screens/user_profile_screen.dart';
+import '../../screens/search_screen.dart';
 
 class ResponsiveNavigation extends StatefulWidget {
   final int initialIndex;
@@ -27,11 +28,18 @@ class _ResponsiveNavigationState extends State<ResponsiveNavigation> {
       page: HomeScreen(),
     ),
     AppDestination(
+      label: 'search',
+      icon: Icons.search_outlined,
+      selectedIcon: Icons.search,
+      page: SearchScreen(),
+    ),
+    AppDestination(
       label: 'Profile',
       icon: Icons.person_outline,
       selectedIcon: Icons.person,
       page: UserScreen(),
     ),
+    
   ];
 
   @override
@@ -128,6 +136,8 @@ class _ResponsiveNavigationState extends State<ResponsiveNavigation> {
         return RouteGenerator.postdetail;
       case 3:
         return RouteGenerator.profile;
+      case 4:
+        return RouteGenerator.search;
       case 0:
       default:
         return RouteGenerator.initial;

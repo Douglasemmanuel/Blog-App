@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../screens/home_screen.dart';
 import '../../screens/post_detail_screen.dart';
 import '../../screens/user_profile_screen.dart';
+import '../../screens/search_screen.dart';
 import '../../widgets/commons/responsive_navigation.dart';
 
 class RouteGenerator {
@@ -10,6 +11,7 @@ class RouteGenerator {
   static const String home = '/home';
   static const String profile = '/profile';
   static const String postdetail = '/post-detail';
+  static const String search = '/search';
 
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -20,7 +22,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => HomeScreen());
       case profile:
         return MaterialPageRoute(builder: (_) => UserScreen());
-      
+      case search:
+          return MaterialPageRoute(builder:(_)=>SearchScreen());
       case postdetail:
         final postId = settings.arguments as String;
         return MaterialPageRoute(
