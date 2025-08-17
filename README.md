@@ -71,9 +71,27 @@ lib/
 │   ├── search_screen.dart
 │   ├── user_profile_screen.dart
 │   └── post_detail_screen.dart
+├── providers/
+│   ├── comments_provider.dart
+│   ├── posts_provider.dart
+│   └── user_provider.dart
 ├── widgets/
 │   ├── search_bar.dart
 │   ├── post_card.dart
+│   └── comment_list.dart
+│   ├── user_card.dart
+│   ├── loading_widget.dart
+|   ├── components/
+|          |--comment_list.dart
+|          |--create_pos_form.dart
+|          |--post_list.dart
+│   ├──commons/
+|          |--responsive_navigation.dart
+│   
+│   
+├── utils/
+│   ├── responsive_breakpoints.dart
+│   ├── routes_generator.dart
 │   └── comment_list.dart
 ```
 
