@@ -17,18 +17,22 @@ A **Flutter application** powered by the [JSONPlaceholder API](https://jsonplace
 
 ---
 
-## 🚀 Live Preview
+## 📸 Screenshots
 
-| Search Post                                                     | View Post & Comments                                           | User Profile                                                   |
-| --------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| <img src="assets/images/search.png" alt="search" width="200"/> | !<img src="assets/images/home.png" alt="home" width="200"/>  <img src="assets/images/comment.png" alt="comment" width="200"/>| ![User](https://via.placeholder.com/150x300?text=User+Profile) |
+<img src="assets/images/home.png" alt="Main Screen" width="200"/>
+<img src="assets/images/comment.png" alt="comments" width="200"/>
+<img src="assets/images/search.png" alt="search" width="200"/>
+<img src="assets/images/create.png" alt="createpost" width="200"/>
+
+
+> Replace the filenames with your actual images if different. You can also adjust the `width` for resizing.
 
 ---
 
 ## 🎬 Video Walkthrough
 
 📺 **Watch Full Tutorial**
-[![Watch on GoggleDrive](https://img.youtube.com/vi/Wsor0fci3Ss/0.jpg)](https://www.youtube.com/watch?v=Wsor0fci3Ss)
+[![Watch on ](https://img.youtube.com/vi/Wsor0fci3Ss/0.jpg)](https://www.youtube.com/watch?v=Wsor0fci3Ss)
 
 ---
 
