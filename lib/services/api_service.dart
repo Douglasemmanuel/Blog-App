@@ -34,18 +34,34 @@ class ApiService {
     }
   }
 
-  Future<Post> updatePost(Post post) async {
-    final response = await http.put(
-      Uri.parse('$baseUrl/posts/${post.id}'),
-      headers: {'Content-Type': 'application/json; charset=UTF-8'},
-      body: json.encode(post.toJson()),
-    );
-    if (response.statusCode == 200) {
-      return Post.fromJson(json.decode(response.body));
-    } else {
-      throw Exception('Failed to update post');
-    }
+
+
+Future<Post> updatePost(Post post) async {
+  final id = post.id!;
+  print('Edited Post with ID: $id');
+  
+  final response = await http.patch(
+    Uri.parse('$baseUrl/posts/$id'), 
+    headers: {'Content-Type': 'application/json; charset=UTF-8'},
+    body: json.encode(post.toJson()),
+  );
+
+  if (response.statusCode == 200) {
+    final jsonResponse = json.decode(response.body) as Map<String, dynamic>;
+
+    // Ensure the id is there, or add it manually
+    jsonResponse['id'] = jsonResponse['id'] ?? id;
+
+    return Post.fromJson(jsonResponse);
+  } else {
+    throw Exception('Failed to update post');
   }
+}
+
+
+
+
+
 
   Future<void> deletePost(int id) async {
     final response = await http.delete(

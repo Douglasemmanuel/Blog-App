@@ -169,20 +169,11 @@ onPressed: () {
           ),
           child: Column(
           children: [
-            // Close button aligned right
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.end,
-            //   children: [
-            //     IconButton(
-            //       icon: const Icon(Icons.close),
-            //       onPressed: () => Navigator.of(context).pop(),
-            //     ),
-            //   ],
-            // ),
+            
 
             // Your comment list or content
             Expanded(
-              child: CommentList(postId: post.id),
+              child: CommentList(postId: post.id!),
              
 
             ),

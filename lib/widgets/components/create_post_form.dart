@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../models/post.dart';
 import '../../services/api_service.dart'; // update the path as needed
-
+import '../../utils/route_generator.dart';
+import '../../providers/posts_provider.dart';
 class CreatePostForm extends ConsumerStatefulWidget {
   @override
   _CreatePostFormState createState() => _CreatePostFormState();
@@ -111,12 +112,19 @@ class _CreatePostFormState extends ConsumerState<CreatePostForm> {
 
                   try {
                     final createdPost = await apiService.createPost(post);
-
+                      // Save the created post in the provider
+                    //  ref.read(createdPostProvider.notifier).state = createdPost;
+                     await ref.read(createdPostProvider.notifier).setPost(createdPost);
+                     
+                    // Navigator.of(context, rootNavigator: true).pushNamed(
+                    //   RouteGenerator.profile
+                    //   );
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text('Post created with ID: ${createdPost.id}'),
                       ),
                     );
+                      
 
                     Navigator.of(context).pop(); // close bottom sheet
                   } catch (e) {

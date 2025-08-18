@@ -79,7 +79,7 @@ if (isScrollingDown &&
    leading: Padding(
     padding: const EdgeInsets.all(12.0), // optional padding around the avatar
     child: CircleAvatar(
-      backgroundImage: AssetImage('images/Douglas.jpeg'), // your asset path here
+      backgroundImage: AssetImage('assets/images/Douglas.jpeg'), // your asset path here
       radius: 24, // adjust size as needed
     ),
   ),

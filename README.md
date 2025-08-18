@@ -71,6 +71,8 @@ lib/
 │   └── user.dart
 ├── services/
 │   └── api_service.dart
+├── preferences/
+│   └── post_storage.dart
 ├── screens/
 │   ├── search_screen.dart
 │   ├── user_profile_screen.dart

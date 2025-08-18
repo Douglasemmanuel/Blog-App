@@ -6,10 +6,21 @@ import '../models/post.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-void main() {
+import '../providers/posts_provider.dart';
+import '../preferences/post_storage.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Load saved Post from SharedPreferences
+  final savedPost = await PostPreferences.loadPost();
+
   runApp(
-    ProviderScope(    // <-- Wrap your entire app here
-      child: MyApp(),
+    ProviderScope(
+      // overrides: [
+      //   createdPostProvider.overrideWith(() => CreatedPostNotifier(savedPost)),
+      // ],
+      child: const MyApp(),
     ),
   );
 }

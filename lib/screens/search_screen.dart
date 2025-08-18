@@ -5,6 +5,7 @@ import '../widgets/search_bar.dart';
 import '../services/api_service.dart';
 import '../widgets/components/search_result.dart';
 import '../models/post.dart';
+import '../../widgets/loading_widget.dart';
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
 
@@ -95,7 +96,7 @@ Widget build(BuildContext context) {
             const SizedBox(height: 20),
             Expanded(
               child: _isLoading
-                  ? const Center(child: CircularProgressIndicator())
+                  ? const Center( child: LoadingWidget(message: 'Fetching posts...'),)
                   : _errorMessage != null
                       ? Center(child: Text(_errorMessage!))
                       : _searchResult == null
