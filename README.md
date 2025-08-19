@@ -1,4 +1,4 @@
- Here’s a **detailed and professional README** for your Flutter app, including:
+ Here’s a **detailed and professional README** for social Blog app Built using flutter, including:
 
 * Overview
 * Setup instructions
@@ -23,8 +23,9 @@ A **Flutter application** powered by the [JSONPlaceholder API](https://jsonplace
 <img src="assets/images/comment.png" alt="comments" width="200"/>
 <img src="assets/images/search.png" alt="search" width="200"/>
 <img src="assets/images/create.png" alt="createpost" width="200"/>
-
-
+<img src="assets/images/profile.png" alt="profile" width="200"/>
+<img src="assets/images/delete.png" alt="Deletepost" width="200"/>
+<img src="assets/images/edit.png" alt="Editpost" width="200"/>
 > Replace the filenames with your actual images if different. You can also adjust the `width` for resizing.
 
 ---
@@ -32,7 +33,7 @@ A **Flutter application** powered by the [JSONPlaceholder API](https://jsonplace
 ## 🎬 Video Walkthrough
 
 📺 **Watch Full Tutorial**
-[![Watch on ](https://img.youtube.com/vi/Wsor0fci3Ss/0.jpg)](https://www.youtube.com/watch?v=Wsor0fci3Ss)
+[Download from Goggle Drive ](https://drive.google.com/file/d/1dg4Wujc-pf9pp_If92H3sitEwbvkv1bt/view?usp=sharing)
 
 ---
 
@@ -88,11 +89,11 @@ lib/
 │   ├── user_card.dart
 │   ├── loading_widget.dart
 |   ├── components/
-|          |--comment_list.dart
-|          |--create_pos_form.dart
-|          |--post_list.dart
+|   |      |--comment_list.dart
+|   |      |--create_pos_form.dart
+|   |      |--post_list.dart
 │   ├──commons/
-|          |--responsive_navigation.dart
+|   |      |--responsive_navigation.dart
 │   
 │   
 ├── utils/
